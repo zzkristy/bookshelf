@@ -1,0 +1,6 @@
+{
+	"debug": false,
+    "test_env": false,
+
+	"__include__": "./local.json"
+}
