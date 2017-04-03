@@ -1,0 +1,3 @@
+#!/bin/sh
+
+/usr/local/bin/uwsgi --reload /tmp/book_uwsgi.pid

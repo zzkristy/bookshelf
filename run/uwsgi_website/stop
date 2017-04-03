@@ -1,0 +1,3 @@
+#!/bin/sh
+
+/usr/local/bin/uwsgi --stop /tmp/book_uwsgi.pid

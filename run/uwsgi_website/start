@@ -1,0 +1,10 @@
+#!/bin/sh
+
+abs_path=$(cd `dirname $0`; pwd)
+root_path=$(cd "$abs_path/../../"; pwd)
+
+#切换到web目录作为根目录
+cd $root_path
+
+export PYTHONPATH=$root_path/lib:$root_path:$PYTHONPATH
+exec $abs_path/real_run

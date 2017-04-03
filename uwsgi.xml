@@ -1,0 +1,24 @@
+<uwsgi>
+    <socket>0.0.0.0:8610</socket>
+    <module>bookshelf.wsgi:application</module>
+    <workers>4</workers>
+    <cheap/>
+    <cheaper>1</cheaper>
+    <harakiri>30</harakiri>
+    <harakiri-verbose/>
+    <!-- <pidfile>/tmp/website_uwsgi.pid</pidfile> -->
+    <!-- <log-slow>1500</log-slow> -->
+    <daemonize>logs/uwsgi_website.log</daemonize>
+    <master/>
+    <lazy/>
+    <!-- http://uwsgi-docs.readthedocs.org/en/latest/Tracebacker.html -->
+    <!-- 可以跟踪代码执行到哪了 -->
+    <py-tracebacker>/tmp/uwsgi_website_tbsocket.</py-tracebacker>
+    <buffer-size>65536</buffer-size>
+    <post-buffering>65536</post-buffering>
+    <!-- daemonize的log优先
+    <logto>logs/uwsgi_website.log</logto>
+    <log-maxsize>2147483647</log-maxsize>
+    <log-slow>500</log-slow>
+    -->
+</uwsgi>
