@@ -1,0 +1,13 @@
+.DS_Store
+tags
+*.swp
+*.log
+logs
+local.json
+local.conf
+.idea
+*.pyc
+__pycache__
+~*
+venv
+.vscode

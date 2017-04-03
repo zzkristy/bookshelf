@@ -1,0 +1,19 @@
+<uwsgi>
+    <module>bookshelf.wsgi:application</module>
+    <workers>4</workers>
+    <virtualenv>venv</virtualenv>
+    <cheap/>
+    <cheaper>1</cheaper>
+    <harakiri>30</harakiri>
+    <harakiri-verbose/>
+    <!-- <pidfile>/tmp/website_uwsgi.pid</pidfile> -->
+    <!-- <log-slow>1500</log-slow> -->
+    <daemonize>logs/uwsgi_website.log</daemonize>
+    <master/>
+    <lazy/>
+    <!-- http://uwsgi-docs.readthedocs.org/en/latest/Tracebacker.html -->
+    <!-- 可以跟踪代码执行到哪了 -->
+    <py-tracebacker>/tmp/uwsgi_website_tbsocket.</py-tracebacker>
+    <buffer-size>65536</buffer-size>
+    <post-buffering>65536</post-buffering>
+</uwsgi>
