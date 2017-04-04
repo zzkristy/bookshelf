@@ -13,7 +13,6 @@ https://docs.djangoproject.com/en/1.10/ref/settings/
 import os
 from common.conf import conf
 from common.mongo.mongo_client import config_mongo
-from common.redis.redis_client import config_redis
 from bookshelf import loggers
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -27,7 +26,7 @@ SECRET_KEY = 'w_pii+5y6r!=2o62=(tj$15n94u0sv2aii_1*7-h^n@5bzjrq('
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = conf.debug
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -84,7 +83,6 @@ DATABASES = {
 
 # init mongodb
 config_mongo(conf)
-config_redis(conf)
 # session
 SESSION_COOKIE_AGE = 60 * 60 * 24 * 30
 SESSION_ENGINE = 'common.django_mongo_session'
