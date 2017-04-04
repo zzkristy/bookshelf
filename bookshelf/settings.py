@@ -14,6 +14,7 @@ import os
 from common.conf import conf
 from common.mongo.mongo_client import config_mongo
 from common.redis.redis_client import config_redis
+from bookshelf import loggers
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -88,6 +89,7 @@ config_redis(conf)
 SESSION_COOKIE_AGE = 60 * 60 * 24 * 30
 SESSION_ENGINE = 'common.django_mongo_session'
 
+LOGGING = loggers.LOGGING
 # Password validation
 # https://docs.djangoproject.com/en/1.10/ref/settings/#auth-password-validators
 
