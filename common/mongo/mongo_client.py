@@ -25,3 +25,8 @@ def config_mongo(conf):
 def sessionConn():
     global default_mongo_db
     return default_mongo_db['session']
+
+
+def bookConn():
+    global default_mongo_db
+    return default_mongo_db['book']
