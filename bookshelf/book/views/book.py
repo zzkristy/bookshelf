@@ -62,7 +62,8 @@ class BookListView(CommonBaseView):
             'title': d['title'],
             'author': d['author'],
             'publisher': d['publisher'],
-            'pubdate': d['pubdate']
+            'pubdate': d['pubdate'],
+            'image': d['image'],
         } for d in data]
         return self.JsonSuccessResponse(result)
 

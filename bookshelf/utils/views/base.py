@@ -13,7 +13,8 @@ class LoginView(View):
             if 'openid' in result:
                 request.session['openid'] = result['openid']
                 request.session['session_key'] = result['session_key']
-                return JsonResponse({'code': 0})
+                request.session.save()
+                return JsonResponse({'code': 0, 'data': request.session.session_key})
             else:
                 return JsonResponse({'code': 1, 'msg': result.get('errmsg', '')})
         return JsonResponse({'code': 1, 'msg': '缺少code参数'})
