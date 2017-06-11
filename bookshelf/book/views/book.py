@@ -1,8 +1,11 @@
 import requests
 import json
+import logging
 from datetime import datetime
 from bookshelf.utils.views.common import CommonBaseView
 from common.mongo.service import book_srv
+
+logger = logging.getLogger(__name__)
 
 
 class BookQueryView(CommonBaseView):
@@ -46,9 +49,11 @@ class BookAddView(CommonBaseView):
 
             book_srv.insert_one(self.openid, isbn, content)
             return self.JsonSuccessResponse({'isbn': isbn})
-        except KeyError:
+        except KeyError as e:
+            logger.exception(str(e))
             return self.JsonErrorResponse('请求参数有误')
         except Exception as e:
+            logger.exception(str(e))
             return self.JsonErrorResponse(str(e))
 
 
