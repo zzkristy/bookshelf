@@ -35,6 +35,8 @@ class BookAddView(CommonBaseView):
     def post(self, request):
         try:
             data = request.POST
+            if not data and request.body:
+                data = json.loads(request.body.decode('utf-8'))
             isbn = data['isbn']
             content = {
                 'title': data['title'],

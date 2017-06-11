@@ -19,6 +19,8 @@ class CommonBaseView(BasePermitView, FormAjaxResponseMixin):
         data = None
         if self.request_method == 'post':
             data = request.POST.dict()
+            if not data and request.body:
+                data = request.body.decode('utf-8')
         elif self.request_method == 'get':
             data = request.GET.dict()
         logger.info(self.request_method.upper() + '_DATA:{}'.format(json.dumps(data)))
