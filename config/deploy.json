@@ -1,8 +1,8 @@
 {
     "debug": false,
-	"test_env": false,
-	
-	"mongo": {
+    "test_env": false,
+
+    "mongo": {
         "host":              "localhost",
         "port":              27017,
         "name":              "bookshelf",
