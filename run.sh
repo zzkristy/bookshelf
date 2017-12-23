@@ -11,6 +11,13 @@ if ! [[ -d logs ]];then
     mkdir logs
 fi
 
+if [ -z "$VIRTUAL_ENV" ];then
+    python3 -m venv venv
+    . venv/bin/activate
+fi
+
+pip3 install -r requirements.txt
+
 export PYTHONPATH=$root_path/lib:$root_path:$PYTHONPATH
 export DJANGO_SETTINGS_MODULE=bookshelf.settings
 

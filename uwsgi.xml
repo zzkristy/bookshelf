@@ -1,7 +1,7 @@
 <uwsgi>
-    <socket>0.0.0.0:8610</socket>
     <module>bookshelf.wsgi:application</module>
     <workers>4</workers>
+    <virtualenv>venv</virtualenv>
     <cheap/>
     <cheaper>1</cheaper>
     <harakiri>30</harakiri>
@@ -16,9 +16,4 @@
     <py-tracebacker>/tmp/uwsgi_website_tbsocket.</py-tracebacker>
     <buffer-size>65536</buffer-size>
     <post-buffering>65536</post-buffering>
-    <!-- daemonize的log优先
-    <logto>logs/uwsgi_website.log</logto>
-    <log-maxsize>2147483647</log-maxsize>
-    <log-slow>500</log-slow>
-    -->
 </uwsgi>

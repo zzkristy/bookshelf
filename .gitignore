@@ -9,3 +9,5 @@ local.conf
 *.pyc
 __pycache__
 ~*
+venv
+.vscode

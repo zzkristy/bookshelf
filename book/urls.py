@@ -1,5 +1,5 @@
 from django.conf.urls import url
-from bookshelf.book.views.book import (
+from book.views.book import (
     BookAddView, BookQueryView, BookListView, BookDetailView
 )
 

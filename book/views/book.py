@@ -2,7 +2,7 @@ import requests
 import json
 import logging
 from datetime import datetime
-from bookshelf.utils.views.common import CommonBaseView
+from utils.views.common import CommonBaseView
 from common.mongo.service import book_srv
 
 logger = logging.getLogger(__name__)

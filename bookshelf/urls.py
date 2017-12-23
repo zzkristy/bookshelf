@@ -14,10 +14,10 @@ Including another URLconf
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
 from django.conf.urls import url, include
-import bookshelf.book.urls
-from bookshelf.utils.views.base import LoginView
+import book.urls
+from utils.views.base import LoginView
 
 urlpatterns = [
     url(r'^login$', LoginView.as_view()),
-    url(r'book/', include(bookshelf.book.urls)),
+    url(r'book/', include(book.urls)),
 ]
