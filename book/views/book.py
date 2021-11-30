@@ -4,6 +4,7 @@ import logging
 from datetime import datetime
 from utils.views.common import CommonBaseView
 from common.mongo.service import book_srv
+from common.isbn import get_book
 
 logger = logging.getLogger(__name__)
 
@@ -13,16 +14,14 @@ class BookQueryView(CommonBaseView):
     def get(self, request):
         isbn = request.GET.get('isbn')
         if isbn:
-            url = 'https://api.douban.com/v2/book/isbn/{}'.format(isbn)
-            res = requests.get(url)
-            content = json.loads(res.content.decode())
+            content = get_book(isbn)
             result = {
                 'isbn': isbn,
                 'title': content['title'],
                 'author': content['author'],
                 'publisher': content['publisher'],
                 'pubdate': content['pubdate'],
-                'image': content['image'],
+                'image': content['img'],
                 'buydate': datetime.now().strftime('%Y-%m-%d'),
                 'number': 1,
             }

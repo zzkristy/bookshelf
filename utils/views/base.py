@@ -1,8 +1,9 @@
 from functools import update_wrapper
 from django.views.generic import View
+from bookshelf.settings import DEBUG
 from common.wechat import wechat_srv
 from django.http.response import JsonResponse
-
+from django.conf import settings
 
 class LoginView(View):
 
@@ -17,6 +18,11 @@ class LoginView(View):
                 return JsonResponse({'code': 0, 'data': request.session.session_key})
             else:
                 return JsonResponse({'code': 1, 'msg': result.get('errmsg', '')})
+        elif settings.DEBUG and request.GET.get('openid'):
+            request.session['openid'] = request.GET.get('openid')
+            request.session['session_key'] = request.GET.get('openid')
+            request.session.save()
+            return JsonResponse({'code': 0, 'data': request.session.session_key})
         return JsonResponse({'code': 1, 'msg': '缺少code参数'})
 
 

@@ -30,3 +30,7 @@ def sessionConn():
 def bookConn():
     global default_mongo_db
     return default_mongo_db['book']
+
+def isbnConn():
+    global default_mongo_db
+    return default_mongo_db['isbn']
