@@ -1,14 +1,9 @@
 <uwsgi>
     <module>bookshelf.wsgi:application</module>
     <workers>4</workers>
-    <virtualenv>venv</virtualenv>
-    <cheap/>
-    <cheaper>1</cheaper>
-    <harakiri>30</harakiri>
-    <harakiri-verbose/>
     <!-- <pidfile>/tmp/website_uwsgi.pid</pidfile> -->
     <!-- <log-slow>1500</log-slow> -->
-    <daemonize>logs/uwsgi_website.log</daemonize>
+    <logto>logs/uwsgi.log</logto>
     <master/>
     <lazy/>
     <!-- http://uwsgi-docs.readthedocs.org/en/latest/Tracebacker.html -->

@@ -11,7 +11,7 @@ if [ x$2 != x ];then
 fi
 
 abs_path=$(cd `dirname $0`; pwd -P)
-root_path=$(cd "$abs_path/../../"; pwd -P) #工程目录
+root_path=$(cd "$abs_path/../"; pwd -P) #工程目录
 root_dir=$(basename $root_path)
 # 工程目录名生成pid文件名
 PID=/tmp/bookshelf_${root_dir}.pid
@@ -24,28 +24,14 @@ if [ ! -d logs ];then
     mkdir logs
 fi
 
-# 建立虚拟目录
-set_venv () {
-    if [ ! -d venv ];then
-        python3 -m venv venv
-    fi
-    . venv/bin/activate
-    if [ -z "$VIRTUAL_ENV" ];then
-        echo 'venv start failed'
-        exit 1
-    fi
-    pip3 install -r requirements.txt
-}
-
 export PYTHONPATH=$root_path/lib:$root_path:$PYTHONPATH
 export DJANGO_SETTINGS_MODULE=bookshelf.settings
 
 case "$1" in
         start)
-            set_venv
             ulimit -c 1024000
             ulimit -n 4095
-            $UWSGI -x uwsgi.xml -s $ADDR:$PORT --pidfile=$PID > logs/uwsgi_website.log 2> logs/uwsgi_website.log
+            $UWSGI -x uwsgi.xml --http-socket $ADDR:$PORT --pidfile=$PID > logs/uwsgi_website.log 2> logs/uwsgi_website.log
             ;;
         stop)
             $UWSGI --stop $PID

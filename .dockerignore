@@ -1,0 +1,6 @@
+.git
+.venv
+venv
+coverage
+log
+__pycache__

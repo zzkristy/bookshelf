@@ -1,9 +1,9 @@
 {
-    "debug": false,
-    "test_env": false,
+    "debug": true,
+    "test_env": true,
 
     "mongo": {
-        "host":              "localhost",
+        "host":              "mongo",
         "port":              27017,
         "name":              "bookshelf",
         "user":              "mongouser",
@@ -11,10 +11,10 @@
     },
     "redis": {
         "session": {
-            "host":    "localhost",
+            "host":    "redis",
             "port":    6379,
             "db":   0,
-            "password":  "password"
+            "password":  ""
         }
     },
     "wechat": {
